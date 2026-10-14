@@ -1,4 +1,4 @@
-package me.veramaximiliano.facebook
+package me.veramaximiliano.facebook.ui.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -16,7 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -24,7 +23,7 @@ import androidx.navigation.NavController
 //@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FacebookRegisterScreen(NavController: NavController) {
+fun FacebookRegisterScreen(onClickBack: () -> Unit) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var emailOrPhone by remember { mutableStateOf("") }
@@ -39,9 +38,7 @@ fun FacebookRegisterScreen(NavController: NavController) {
             TopAppBar(
                 title = { },
                 navigationIcon = {
-                    IconButton(onClick = {
-                        NavController.popBackStack()
-                    }) {
+                    IconButton(onClick = { onClickBack() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Ir atrás"
