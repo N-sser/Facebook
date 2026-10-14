@@ -33,7 +33,7 @@ private val FacebookDarkText = Color(0xFF1C1E21)
 
 //@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun FacebookLoginScreen(onClickRegister : ()-> Unit) {
+fun FacebookLoginScreen(onClickRegister : ()-> Unit, onClickSignIn : ()-> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
@@ -86,7 +86,7 @@ fun FacebookLoginScreen(onClickRegister : ()-> Unit) {
 
         // Botón Iniciar sesión
         Button(
-            onClick = {  },
+            onClick = { onClickSignIn() },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp),
